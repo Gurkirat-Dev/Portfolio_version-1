@@ -1,0 +1,504 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400..800&display=swap");
+@font-face {
+  font-family: "neueFont";
+  src: url(./fonts/NeueMachina-Light.otf) format("opentype"),
+    url(./fonts/NeueMachina-Regular.otf) format("opentype"),
+    url(./fonts/NeueMachina-Ultrabold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Schabo";
+  src: url(./fonts/SCHABO-Condensed.otf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "neueFont";
+  font-weight: normal;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+a {
+  color: #e3e3e3;
+}
+
+html {
+  color: #e3e3e3;
+  background: #1a1a1a;
+}
+nav {
+  width: 100%;
+  height: 10vh;
+  position: relative;
+}
+
+.logo,
+.menu-logo {
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+}
+.logo {
+  position: fixed;
+  font-family: "Schabo";
+  font-size: 60px;
+  color: white;
+  mix-blend-mode: difference;
+}
+
+.logo sub {
+  color: #e3e3e3;
+  font-size: 20px;
+}
+
+.logo a,
+.menu-logo a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-size: 60px;
+}
+
+.menu-toggle {
+  position: fixed;
+  top: 2em;
+  right: 2em;
+  width: 120px;
+  height: 60px;
+  background-color: white;
+  border-radius: 8em;
+  transition: width 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform-origin: right;
+  cursor: pointer;
+  z-index: 110;
+}
+
+.menu-toggle.opened {
+  width: 60px;
+}
+
+.menu-copy {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+  color: black;
+  transition: left 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: 1;
+}
+
+.menu-copy p {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-toggle:hover .menu-copy {
+  left: 20px;
+}
+
+.menu-toggle.opened .menu-copy {
+  opacity: 0;
+}
+
+.menu-toggle-icon {
+  position: absolute;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  clip-path: circle(10% at 50% 50%);
+  background-color: burlywood;
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: 100;
+  overflow: hidden;
+}
+
+section:not(:first-of-type) {
+  margin: 10vh 0;
+}
+
+.menu-toggle:hover .menu-toggle-icon {
+  clip-path: circle(35% at 50% 50%);
+}
+
+.menu-toggle.opened .menu-toggle-icon {
+  clip-path: circle(50% at 50% 50%);
+  transform: scale(1.125);
+}
+
+.hamburger {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  opacity: 0;
+}
+
+.menu-toggle:hover .hamburger,
+.menu-toggle.opened .hamburger {
+  top: 50%;
+  opacity: 1;
+}
+
+.menu-bar {
+  position: absolute;
+  width: 15px;
+  height: 1.5px;
+  background-color: #000;
+  transition-property: transform;
+  transition: all 250ms ease-out;
+}
+
+.menu-bar[data-position="top"] {
+  transform: translateY(-3px);
+}
+
+.menu-bar[data-position="bottom"] {
+  transform: translateY(3px);
+}
+
+.menu-toggle.opened .menu-bar[data-position="top"] {
+  transform: translateY(0) rotate(45deg) scaleX(1.05);
+}
+.menu-toggle.opened .menu-bar[data-position="bottom"] {
+  transform: translateY(0) rotate(-45deg) scaleX(1.05);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: #000;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  z-index: 99;
+}
+
+.col {
+  flex: 1;
+}
+.col-2 {
+  flex: 2;
+  gap: 50px;
+}
+
+.col {
+  position: relative;
+  height: 100%;
+  padding: 10em 2em 2em 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.link {
+  position: relative;
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+.link a {
+  text-decoration: none;
+  color: #e3e3e3;
+  font-size: 48px;
+  font-weight: normal;
+  letter-spacing: -1.5px;
+  line-height: 125%;
+  display: flex;
+  gap: 3rem;
+}
+.link a span {
+  opacity: 0;
+  margin-top: 1rem;
+  fill: #e3e3e3;
+  translate: none;
+  transform: scale(0) rotate(0deg);
+  transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.link a span svg {
+  width: 40px;
+
+}
+
+.link a:hover span{
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1) translate(50%,-20%);
+
+}
+
+
+.video-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-color: #1a1a1a;
+  overflow: hidden;
+  padding: 0em;
+  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.socials {
+  width: 50%;
+  display: flex;
+  gap: 2em;
+}
+
+.socials .sub-col {
+  flex: 1;
+}
+
+.socials .sub-col p,
+.socials .sub-col a {
+  position: relative;
+  color: #e3e3e3;
+  transform: translateY(30px);
+  opacity: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.time {
+  color: #e3e3e3;
+}
+
+.socials .sub-col a:hover {
+  color: burlywood;
+  transition: color 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer;
+}
+
+.header h1 {
+  color: #e3e3e3;
+  text-transform: uppercase;
+  font-family: "schabo";
+  font-size: 500px;
+  font-weight: 800;
+  line-height: 100%;
+  height: 400px;
+}
+
+.header h1 span {
+  position: relative;
+  display: inline-block;
+  font-weight: lighter;
+  font-family: "schabo";
+  transform: scale(0.75) translateY(500px) rotateY(90deg);
+  transform-origin: bottom;
+}
+
+@media (max-width: 900px) {
+  .col-1 {
+    flex: 2;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .links {
+    padding: 10em 2em 2em 2em;
+  }
+
+  .link a {
+    font-size: 30px;
+  }
+  .video-wrapper {
+    padding: 0em;
+    margin-bottom: 3em;
+  }
+  .socials {
+    width: 100%;
+    flex-direction: column;
+    gap: 8em;
+  }
+
+  .header h1 {
+    font-size: 150px;
+    height: 120px;
+  }
+}
+
+@media (max-width:500px){
+.menu{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+}
+}
+
+.hero_title {
+  width: 100%;
+  height: 90vh;
+  position: relative;
+  padding: 10px;
+}
+
+.hero_title h1 {
+  text-align: center;
+  width: 100%;
+  font-size: 14em;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  font-weight: 900;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1700px) {
+  .hero_title h1 {
+    font-size: 10em;
+  }
+}
+@media (max-width: 1220px) {
+  .hero_title h1 {
+    font-size: 8em;
+  }
+}
+@media (max-width: 980px) {
+  .hero_title h1 {
+    font-size: 8em;
+    text-align: left;
+    padding: 30px;
+  }
+}
+@media (max-width: 700px) {
+  .hero_title h1 {
+    font-size: 18vw;
+    text-align: left;
+    padding: 10px;
+  }
+}
+
+#section_02 {
+  width: 100%;
+  height: fit-content;
+}
+
+.video_wrapper {
+  width: 90%;
+  height: 80vh;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.video_wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.heading,
+.about_me {
+  width: 100%;
+}
+
+.heading {
+  padding: 4em;
+}
+
+.heading h1 {
+  font-size: 60px;
+  font-family: "Schabo";
+}
+
+.about_me {
+  font-size: 2rem;
+  padding: 30px 4rem;
+  text-align: center;
+  font-weight: 900;
+}
+
+@media (max-width: 900px) {
+  .video-wrapper video {
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .about_me {
+    padding: 30px 1px;
+  }
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth[data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+
+.section_03{
+ overflow: hidden;
+
+}
+
+.projects{
+display: flex;
+width: 400vw;
+height: 100%;
+}
+
+.project{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.project img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.next-section {
+  height: 500vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: lightcoral;
+  color: white;
+  font-size: 2rem;
+}
