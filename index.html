@@ -266,15 +266,29 @@
             <h5>Email</h5>
             <a href="mailto:gurkirat836.w@gmail.com">gurkirat836.w@gmail.com</a>
             <h5>Address</h5>
-            <p></p>
+            <p>
+              MISSISSUAGA,<br />ONTARIO,<br />
+              CANADA
+            </p>
             <p title="Local Time" class="time2"></p>
           </div>
           <div class="right-contactSec">
-            <p>
-              Got feedback, ideas, or spotted a mistake? Don’t hold back — I
-              promise I won’t cry (much)! Or just drop in and tell me what makes
-              you tick — whether it’s tech, tacos, or time travel.
-            </p>
+            <div class="right-contact-top">
+              <p>
+                Got feedback, ideas, or spotted a mistake? Don’t hold back — I
+                promise I won’t cry (much)! Or just drop in and tell me what
+                makes you tick — whether it’s tech, tacos, or time travel.
+              </p>
+            </div>
+            <div class="right-contact-bottom">
+              <h3>Contact</h3>
+              <form class="form" id="contact-form">
+                <input type="text" placeholder="Your Name Here" name="name" required/>
+                <input type="email" placeholder="coder@email.com" name="email" required>
+                <textarea name="message" rows="10" id="message" placeholder="Share your thoughts..." required></textarea>
+                <button id="submitBtn" class="submit-btn hvr-radial-out" type="submit">Submit</button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
@@ -300,8 +314,10 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="https://unpkg.com/lenis@1.3.3/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="/script.js"></script>
     <script src="particles.js"></script>
     <script src="app.js"></script>
+    <script src="submit.js"></script>
   </body>
 </html>
