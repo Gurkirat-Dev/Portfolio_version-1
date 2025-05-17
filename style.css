@@ -608,13 +608,13 @@ section:not(:first-of-type) {
   position: relative;
 }
 
-.right-contact-top::after{
+.right-contact-top::after {
   content: "";
   width: 100px;
   height: 2px;
   background-color: #e3e3e3;
   position: absolute;
-  top:50%;
+  top: 50%;
   left: 0;
 }
 
@@ -628,6 +628,7 @@ section:not(:first-of-type) {
   flex-direction: column;
   justify-content: center;
   align-items: start;
+  flex-wrap: nowrap;
   gap: 10px;
 }
 
@@ -651,11 +652,10 @@ section:not(:first-of-type) {
 .form input:focus,
 .form textarea:focus {
   border-bottom: 1px solid #007bff;
-  background:transparent; /* blue highlight on focus */
+  background: transparent; /* blue highlight on focus */
 }
 
-.form input::-ms-fill
-.form input::placeholder,
+.form input::-ms-fill .form input::placeholder,
 .form textarea::placeholder {
   color: #666;
 }
@@ -673,7 +673,7 @@ textarea:-webkit-autofill {
   font-family: "Schabo";
 }
 
-.submit-btn{
+.submit-btn {
   width: 120px;
   height: 60px;
   background-color: white;
@@ -685,14 +685,13 @@ textarea:-webkit-autofill {
   cursor: pointer;
   color: #1a1a1a;
   border: none;
-
 }
 
-.submit-btn:hover{
+.submit-btn:hover {
   background-color: #007bff;
   color: white;
   border: none;
-  transition:background-color 0.3s ease-in-out ;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .hvr-radial-out {
@@ -720,7 +719,7 @@ textarea:-webkit-autofill {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #2098d1;
+  background: #00DD9E;
   border-radius: 100%;
   -webkit-transform: scale(0);
   transform: scale(0);
@@ -731,11 +730,119 @@ textarea:-webkit-autofill {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-.hvr-radial-out:hover, .hvr-radial-out:focus, .hvr-radial-out:active {
+.hvr-radial-out:hover,
+.hvr-radial-out:focus,
+.hvr-radial-out:active {
   color: white;
 }
-.hvr-radial-out:hover:before, .hvr-radial-out:focus:before, .hvr-radial-out:active:before {
+.hvr-radial-out:hover:before,
+.hvr-radial-out:focus:before,
+.hvr-radial-out:active:before {
   -webkit-transform: scale(2);
   transform: scale(2);
 }
+
+footer {
+  margin-top: 20vh;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-top {
+  width: 100%;
+  height: 90%;
+  display: flex;
+}
+
+.top-footer-left {
+  width: 50%;
+}
+.top-footer-left p {
+  margin-left: 100px;
+  width: 80%;
+  font-size: 5rem;
+  font-family: "Schabo";
+}
+
+.top-footer-right {
+  width: 50%;
+  position: relative;
+}
+
+.keyboard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  transform: scale(0.6);
+}
+
+.top-footer-right::after {
+  content: "";
+  position: absolute;
+  top: 75%;
+  right: 20%;
+  width: 100px;
+  height: 50px;
+  background-color: #1a1a1a;
+}
+
+footer h6 {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.bottom-footer {
+  display: flex;
+  width: 100%;
+  height: 10dvh;
+}
+
+.bottom-footer-left {
+  width: 50%;
+  display: flex;
+  justify-content: start;
+  margin-left: 50px;
+  align-items: end;
+  padding-bottom: 30px;
+}
+.bottom-footer-right {
+  width: 50%;
+  height: 100%;
+display: flex;
+justify-content: end;
+align-items: end;
+padding-bottom:10px;
+margin-right: 90px;
+}
+
+.bottom-footer-right ul{
+  display: flex;
+  gap: 3vw;
+
+}
+
+.bottom-footer-right ul li{
+  list-style: none;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  width: 120px;
+  height: 60px;
+  border-radius: 8em;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.bottom-footer-right ul li:hover{
+  color: black;
+}
+
 

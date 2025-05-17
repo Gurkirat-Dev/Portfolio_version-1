@@ -199,27 +199,32 @@ const pinAnimation = () => {
   });
 };
 
-
 const displayTime = () => {
-          const timeElement = document.querySelector(".time2"); // Get the element once
+  const timeElement = document.querySelector(".time2"); // Get the element once
 
-          if (!timeElement) return; // Prevent errors if element is missing
+  if (!timeElement) return; // Prevent errors if element is missing
 
-          const updateClock = () => {
-            const date = new Date();
-            timeElement.innerHTML = date.toLocaleTimeString("en-US", {
-              hour: "2-digit",
-              minute: "2-digit",
-              hour12: true,
-            });
-          };
+  const updateClock = () => {
+    const date = new Date();
+    timeElement.innerHTML = date.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+  };
 
-          updateClock(); // Show time immediately
-          setInterval(updateClock, 10000); // Update every minute
-        };
+  updateClock(); // Show time immediately
+  setInterval(updateClock, 10000); // Update every minute
+};
 
-        displayTime();
+const yearUpdate = () => {
+  document.getElementById("year").textContent = new Date().getFullYear();
+};
+
+displayTime();
 
 navHandler();
 
 pinAnimation();
+
+yearUpdate();
