@@ -221,6 +221,31 @@ const yearUpdate = () => {
   document.getElementById("year").textContent = new Date().getFullYear();
 };
 
+const keyBlockSpline = () => {
+  const splineViewer = document.querySelector(".keyboard");
+
+  document.addEventListener("keydown", function (event) {
+    const key = event.key.toLowerCase();
+
+    const isCtrlCombo =
+      (event.ctrlKey || event.metaKey) && (key === "c" || key === "v");
+    const isSingleBlocked = key === "c" || key === "v" || key === "control";
+
+    if (
+      document.activeElement === splineViewer ||
+      splineViewer.matches(":hover")
+    ) {
+      if (isCtrlCombo || isSingleBlocked) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log(`Blocked inside Spline viewer: ${event.key}`);
+      }
+    }
+  });
+};
+
+keyBlockSpline();
+
 displayTime();
 
 navHandler();

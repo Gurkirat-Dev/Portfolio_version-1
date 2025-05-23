@@ -826,8 +826,9 @@ margin-right: 90px;
 
 }
 
-.bottom-footer-right ul li{
+.bottom-footer-right ul a{
   list-style: none;
+  text-decoration: none;
   font-size: 1rem;
   cursor: pointer;
   background-color: transparent;
