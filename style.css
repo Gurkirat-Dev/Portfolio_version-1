@@ -35,7 +35,8 @@ html {
 nav {
   width: 100%;
   height: 10vh;
-  position: relative;
+  position: absolute;
+  background-color: transparent;
 }
 
 .logo,
@@ -189,6 +190,7 @@ section:not(:first-of-type) {
   background-color: #000;
   transform-style: preserve-3d;
   perspective: 1000px;
+  overflow-y: scroll;
   clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
   z-index: 99;
 }
@@ -311,45 +313,6 @@ section:not(:first-of-type) {
   transform-origin: bottom;
 }
 
-@media (max-width: 900px) {
-  .col-1 {
-    flex: 2;
-    align-items: flex-start;
-    padding: 0;
-  }
-
-  .links {
-    padding: 10em 2em 2em 2em;
-  }
-
-  .link a {
-    font-size: 30px;
-  }
-  .video-wrapper {
-    padding: 0em;
-    margin-bottom: 3em;
-  }
-  .socials {
-    width: 100%;
-    flex-direction: column;
-    gap: 8em;
-  }
-
-  .header h1 {
-    font-size: 150px;
-    height: 120px;
-  }
-}
-
-@media (max-width: 500px) {
-  .menu {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: fit-content;
-  }
-}
 
 .hero_title {
   width: 100%;
@@ -392,6 +355,89 @@ section:not(:first-of-type) {
     text-align: left;
     padding: 10px;
   }
+}
+@media (max-width: 900px) {
+  .col-1 {
+    flex: 1;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .col-2{
+    flex: 1;
+    gap: 10px;
+  }
+
+  .links {
+    padding:0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .link a{
+    padding-top: 50px;
+  }
+  .menu-logo{
+    top: 7%;
+    left: -5%;
+  }
+.menu-logo a{
+  font-size: 30px;
+}
+  .link a {
+    font-size: 40px;
+  }
+  .link span{
+    display: none;
+  }
+  .video-wrapper {
+    padding: 0em;
+    display: none;
+  }
+  .socials {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+  }
+  .sub-col{
+    flex: auto;
+  }
+
+  .header h1 {
+    font-size: 150px;
+    height: 120px;
+  }
+  .col {
+    width: 100vw;
+    height: 100vh;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+}
+
+@media (max-width: 500px) {
+  .menu {
+    width: 100vw;
+    height: 100dvh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+}
+#section_01{
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, #1a1a1a 100%), url(/background.jpg);
+  background-position: left;
+  background-repeat: no-repeat;
 }
 
 #section_02 {

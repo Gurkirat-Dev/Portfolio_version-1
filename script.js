@@ -45,6 +45,8 @@ const navHandler = () => {
         menuToggle.classList.add("opened");
         isAnimating = true;
 
+
+
         gsap.to(menu, {
           clipPath: "polygon(0% 0%,100% 0%, 100% 100% ,0% 100%)",
           ease: "hop",
